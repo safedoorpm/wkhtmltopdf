@@ -279,7 +279,7 @@ void ResourceObject::loadFinished(bool ok) {
 	// XXX: If loading failed there's no need to wait
 	//      for javascript on this resource.
 	if (!ok || signalPrint || settings.jsdelay == 0) loadDone();
-	else if (isMain && !settings.windowStatus.isEmpty()) waitWindowStatus();
+	else if (!settings.windowStatus.isEmpty()) waitWindowStatus();
 	else QTimer::singleShot(settings.jsdelay, this, SLOT(loadDone()));
 }
 
